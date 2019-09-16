@@ -1,9 +1,11 @@
-$("#SEARCHBUTTON").on("click", function(){
+$("#search").on("click", function(e){
+    e.preventDefault()
+    console.log("click")
 
-    var search = $("#SEARCHBOX").val().trim();
+    var search = $("#searchbox").val().trim();
     var apiKey = "iF5eTmwXXmZNmdiHukJAtAZ3VOdB2OXW"
 
-    var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + search +" &api-key=" + apiKey;
+    var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + search +"&api-key=" + apiKey;
 
    
 
@@ -13,14 +15,16 @@ $("#SEARCHBUTTON").on("click", function(){
         method: "GET"
     })
     .then(function(response){
-        var results = response.data;
+        console.log(response.response.docs[0].headline)
+        var results = response.response.docs;
 
         for (var i = 0; i < results.length; i++){
-            var newDiv = $("<div>");
-            var head = $("<h1>").text(results.headline)
+            // var newDiv = $("<div>");
+            var head = $("<h1>")
+            head.text(results[i].headline.main)
 
-            newDiv.append(head);
-            $("#AREAOFPAGETOAPPEND").prepend(newDiv);
+            // newDiv.append(head);
+            $(".articles-here").prepend(head);
 
         }
 
