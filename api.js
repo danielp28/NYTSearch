@@ -5,7 +5,7 @@ $("#SEARCHBUTTON").on("click", function(){
 
     var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + search +" &api-key=" + apiKey;
 
-    var search = ""
+    var search = $("#SEARCHBOX").val().trim();
 
 
     .ajax({
@@ -30,3 +30,5 @@ $("#SEARCHBUTTON").on("click", function(){
     })
 
 })
+
+
