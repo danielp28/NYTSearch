@@ -1,14 +1,14 @@
 $("#SEARCHBUTTON").on("click", function(){
 
 
-    var apiKey = "iF5eTmwXXmZNmdiHukJAtAZ3VOdB2OXW"
+    var apiKey = "iF5eTmwXXmZNmdiHukJAtAZ3VOdB2OXW";
 
     var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + search +" &api-key=" + apiKey;
 
     var search = $("#SEARCHBOX").val().trim();
 
 
-    .ajax({
+    $.ajax({
         url: queryURL,
         method: "GET"
     })
