@@ -1,14 +1,12 @@
 $("#search").on("click", function(e){
     e.preventDefault()
-    console.log("click")
+
+    var num = $(".form-control").val();
 
     var search = $("#searchbox").val().trim();
     var apiKey = "iF5eTmwXXmZNmdiHukJAtAZ3VOdB2OXW"
 
     var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + search +"&api-key=" + apiKey;
-
-   
-
 
     $.ajax({
         url: queryURL,
@@ -17,20 +15,14 @@ $("#search").on("click", function(e){
     .then(function(response){
         console.log(response.response.docs[0].headline)
         var results = response.response.docs;
+        $(".articles-here").html("");
 
-        for (var i = 0; i < results.length; i++){
-            // var newDiv = $("<div>");
-            var head = $("<h1>")
+        for (var i = 0; i < num; i++){
+            var head = $("<h4>")
             head.text(results[i].headline.main)
-
-            // newDiv.append(head);
             $(".articles-here").prepend(head);
-
-        }
-
-
-
-
+            $(".articles-here").prepend("<br></br>")
+        };
     })
 
 })
