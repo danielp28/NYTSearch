@@ -16,6 +16,8 @@
 
     <!-- css -->
     <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -33,18 +35,32 @@
             <div class="card-header">
                 Search Parameters
             </div>
-            <form id="contact-form">
-                    Search Terms:<br>
-                    <input type="text" name="name" size="125" placeholder="John Smith"><br>
-                    Number of Records to Retrieve:<br>
-                    <input type="text" name="email" size="125" placeholder="example@email.com"><br>
-                    Start Year (optional):<br>
-                    <input type="text" name="email" size="125" placeholder="example@email.com"><br>
-                    End Year (optional):<br>
-                    <input type="text" name="email" size="125" placeholder="example@email.com"><br>
-                  </form>
+            <form id="contact-form" class="mx-3 my-3">
+                Search Terms:<br>
+                <input type="text" name="name" size="125"><br><br>
+                <div class="form-group">
+                    <label for="sel1">Number of Records to Retrieve:</label>
+                    <select class="form-control" id="sel1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                    </select>
+                </div>
+                Start Year (optional):<br>
+                <input type="text" name="email" size="125"><br><br>
+                End Year (optional):<br>
+                <input type="text" name="email" size="125"><br><br>
+                <button id="search" class="btn btn-lg btn-light"> <i class=" fa fa-search"></i> Search</button>
+                <button id="clear" class="btn btn-lg btn-light">Clear</button>
+            </form>
         </div>
-
 
     </div>
 
